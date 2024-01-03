@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVC_Register.RegisterTB> 
+@{
+    ViewBag.Title = "DisplayAllUserPageLoad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Display All</h2>
+<div>
+    @using(Html.BeginForm("", "", FormMethod.Get))
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(m => m.name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.age)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.photo)
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.photo)" height="150" width="150" />
+                    </td>
+                </tr>
+                    }
+                </table>
+            }
+</div>
+
